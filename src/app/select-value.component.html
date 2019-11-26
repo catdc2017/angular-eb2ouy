@@ -1,0 +1,13 @@
+<form [formGroup]="countryForm">
+	<select formControlName="countryControl" [compareWith]="compareFn">
+   <option [ngValue]="country" *ngFor="let country of countries">{{country.name}}</option>
+ </select>
+</form>
+
+<input type="text" #name placeholder="Add country name">
+<input type="text" #code placeholder="Add country code">
+<button (click)="addNewOption(name.value, code.value)">Add to SELECT</button>
+
+<p>
+	<label>Value Update: </label> {{ name.value | json }}
+</p>
